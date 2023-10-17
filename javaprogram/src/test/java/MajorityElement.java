@@ -1,9 +1,10 @@
 import java.util.HashMap;
 
 public class MajorityElement {
-    public static void findMajority(int[] arr, int n)
+    public static int findMajority(int[] arr, int n)
     {
         HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+        int majorityElement =-1;
         int count=0;
         for(int i=0;i<n;i++){
             if(map.containsKey(arr[i]))
@@ -16,12 +17,15 @@ public class MajorityElement {
             }
             if(map.get(arr[i]) > n/2)
             {
+                majorityElement = arr[i];
                 System.out.println("Majority Element is - " + arr[i]);
-                return;
+                return arr[i];
             }
         }
         System.out.println("No Majority Element");
+        return majorityElement;
     }
+
     public static void main(String[] args) {
         int a[]= new int[]{4, 2, 4};
         int nums[] = new int[] {3,3,1,1,1,3,3};
